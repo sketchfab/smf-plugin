@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+	<id>sketchfab:SketchafbBBCode</id>
+	
+	<file name="$languagedir/Modifications.english.php">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+// Sketchfab BBCode MOD by sketchfab
+$txt['sketchfab'] = 'Embed a 3D model from Sketchfab';
+]]></add>
+		</operation>
+	</file>
+
+	<file name="$languagedir/Modifications.english-utf8.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+// Sketchfab BBCode MOD by sketchfab
+$txt['sketchfab'] = 'Embed a 3D model from Sketchfab';
+]]></add>
+		</operation>
+	</file>
+</modification>

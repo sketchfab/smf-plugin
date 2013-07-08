@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+	<name>Sketchfab BBCode and Popup</name>
+	<id>sketchfab:SketchafbBBCode</id>
+	<version>1.0</version>
+	<file name="$sourcedir/Subs.php">
+		<operation>
+			<search position="before"><![CDATA[array(
+				'tag' => 'sub',
+				'before' => '<sub>',
+				'after' => '</sub>',
+			),]]></search>
+			<add><![CDATA[
+			array(
+				'tag' => 'sketchfab',
+				'type' => 'unparsed_content',
+				'content' => '<iframe frameborder="0" height="480" width="100%" allowFullScreen webkitallowfullscreen="true" mozallowfullscreen="true" src="https://sketchfab.com/embed/$1?autostart=0&transparent=0&autospin=0&controls=1"></iframe>',
+				'block_level' => 'true',
+			),]]></add>
+		</operation>
+	</file>
+
+	<file name="$sourcedir/Subs-Editor.php">
+		<operation>
+			<search position="before"><![CDATA[array(
+				'image' => 'ftp',
+				'code' => 'ftp',
+				'before' => '[ftp]',
+				'after' => '[/ftp]',
+				'description' => $txt['ftp']
+			),]]></search>
+			<add><![CDATA[
+			array(
+				'image' => 'sketchfab',
+				'code' => 'sketchfab',
+				'before' => '[sketchfab]',
+				'after' => '[/sketchfab]',
+				'description' => $txt['sketchfab']
+			),
+			]]></add>
+		</operation>
+	</file>
+
+	<file name="$themedir/scripts/editor.js">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+
+// Sketchfab BBCode popup
+smc_Editor.prototype.sketchfabPrompt = function()
+{
+	var url;
+
+	var trim = function(str) {
+		return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+	};
+
+	var promptText = 'Enter the url of a Sketchfab 3D model.\n\n' +
+					 '(example: https://sketchfab.com/show/x4ATBGtYWDF0yOyoi13xTwG9gkm)';
+
+	var errorText = 'Invalid url.\n\n' +
+					'(example: https://sketchfab.com/show/x4ATBGtYWDF0yOyoi13xTwG9gkm)';
+
+	var validateUrl = function(url) {
+		var regexp = /^(http|https):\/\/sketchfab.com\/show\/(.+)$/;
+		url = trim(url);
+
+		return regexp.test(url);
+	};
+
+	while (url === undefined) {
+		url = prompt(promptText);
+
+		if (url === null) {
+			return;
+		} 
+
+		if (validateUrl(url)) {
+			var modelId = url.substring(url.lastIndexOf('/') + 1);
+			this.insertText('[sketchfab]' + modelId + '[/sketchfab]');
+			return;
+		} else {
+			alert(errorText);
+			url = undefined;
+		}
+	};    
+}
+]]></add>
+		</operation>
+
+		<operation>
+			<search position="before"><![CDATA[unformat: 'removeFormatting',]]></search>
+			<add><![CDATA[
+		sketchfab: 'sketchfabPrompt',]]></add>
+		</operation>
+	</file> 
+</modification>
