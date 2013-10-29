@@ -63,7 +63,7 @@ smc_Editor.prototype.sketchfabPrompt = function()
 					'(example: https://sketchfab.com/show/x4ATBGtYWDF0yOyoi13xTwG9gkm)';
 
 	var validateUrl = function(url) {
-		var regexp = /^(http|https):\/\/sketchfab.com\/show\/(.+)$/;
+		var regexp = /^(http|https):\/\/sketchfab.com\/(show|models)\/([^/]+)$/;
 		url = trim(url);
 
 		return regexp.test(url);
