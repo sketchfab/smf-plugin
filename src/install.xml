@@ -3,7 +3,7 @@
 <modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
 	<name>Sketchfab BBCode and Popup</name>
 	<id>sketchfab:SketchafbBBCode</id>
-	<version>1.0</version>
+	<version>1.2</version>
 	<file name="$sourcedir/Subs.php">
 		<operation>
 			<search position="before"><![CDATA[array(
@@ -15,7 +15,7 @@
 			array(
 				'tag' => 'sketchfab',
 				'type' => 'unparsed_content',
-				'content' => '<iframe frameborder="0" height="480" width="100%" allowFullScreen webkitallowfullscreen="true" mozallowfullscreen="true" src="https://sketchfab.com/embed/$1?autostart=0&transparent=0&autospin=0&controls=1"></iframe>',
+				'content' => '<iframe frameborder="0" height="480" width="100%" allowFullScreen webkitallowfullscreen="true" mozallowfullscreen="true" src="https://sketchfab.com/models/$1/embed?autostart=0&transparent=0&autospin=0&ui_controls=1"></iframe>',
 				'block_level' => 'true',
 			),]]></add>
 		</operation>
@@ -57,10 +57,10 @@ smc_Editor.prototype.sketchfabPrompt = function()
 	};
 
 	var promptText = 'Enter the url of a Sketchfab 3D model.\n\n' +
-					 '(example: https://sketchfab.com/show/x4ATBGtYWDF0yOyoi13xTwG9gkm)';
+					 '(example: https://sketchfab.com/models/x4ATBGtYWDF0yOyoi13xTwG9gkm)';
 
 	var errorText = 'Invalid url.\n\n' +
-					'(example: https://sketchfab.com/show/x4ATBGtYWDF0yOyoi13xTwG9gkm)';
+					'(example: https://sketchfab.com/models/x4ATBGtYWDF0yOyoi13xTwG9gkm)';
 
 	var validateUrl = function(url) {
 		var regexp = /^(http|https):\/\/sketchfab.com\/(show|models)\/([^/]+)$/;

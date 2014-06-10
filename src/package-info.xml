@@ -3,18 +3,18 @@
 <package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
     <name>Sketchfab BBCode and Popup</name>
     <id>sketchfab:SketchafbBBCode</id>
-    <version>1.0</version>
+    <version>1.2</version>
     <type>modification</type>
 
     <install>
         <modification>install.xml</modification>
         <modification>languages.xml</modification>
-        <require-file name="sketchfab.gif" destination="$imagesdir/bbc" />
+        <require-file name="sketchfab.gif" destination="$themedir/images/bbc" />
     </install>
 
     <uninstall>
         <modification reverse="true">install.xml</modification>
         <modification reverse="true">languages.xml</modification>
-        <remove-file name="$imagesdir/bbc/sketchfab.gif" />
+        <remove-file name="$themedir/images/bbc/sketchfab.gif" />
     </uninstall>
 </package-info>
