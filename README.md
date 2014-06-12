@@ -9,6 +9,8 @@ Install
 - In your forum admin panel, go to Admin › Package Manager › Download Packages
 - In the "Upload a package" section, click on Browse file and select the "sketchfab.tgz" file
 - At the end of the upload process, click "Install Mod" and on the following page: "Install Now"
+  # IMPORTANT
+  If you're using a custom theme, don't forget to select the "add to other themes" checkbox, for all the themes where you want the plugin installed
 - Done!
 
 Uninstall

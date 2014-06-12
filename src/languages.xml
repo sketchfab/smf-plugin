@@ -2,7 +2,8 @@
 <!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
 <modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
 	<id>sketchfab:SketchafbBBCode</id>
-	
+    <version>1.2</version>
+
 	<file name="$languagedir/Modifications.english.php">
 		<operation>
 			<search position="end" />
